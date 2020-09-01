@@ -103,7 +103,6 @@ const ViewExperiment: React.FC<ListExperimentsProps> = ({ columns }) => {
             text: title,
             destructive: true,
             onClick: () => {
-                console.log("call" + experiment.identifier);
                 client.post("/v1/experiments/delete", {
                     ids: [experiment.identifier]
                 })
