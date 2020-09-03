@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package clutch.chaos.experimentation.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "experimentationv1";
+
+enum Status {
+  UNKNOWN = 0;
+  SCHEDULLED = 1;
+  RUNNING = 2;
+  COMPLETED = 3;
+}
+
+message ExperimentRun {
+  fixed64 id = 1;
+  google.protobuf.Timestamp start_time = 2;
+  google.protobuf.Timestamp end_time = 3;
+  google.protobuf.Timestamp scheduled_end_time = 4;
+  Status status = 5;
+}
