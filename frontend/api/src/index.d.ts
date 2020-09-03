@@ -2560,8 +2560,116 @@ export namespace clutch {
                     public toJSON(): { [k: string]: any };
                 }
 
-                /** Properties of a StopExperimentsRequest. */
-                interface IStopExperimentsRequest {
+                /** Properties of a GetExperimentRunConfigPairDetailsRequest. */
+                interface IGetExperimentRunConfigPairDetailsRequest {
+
+                    /** GetExperimentRunConfigPairDetailsRequest id */
+                    id?: (number|Long|null);
+                }
+
+                /** Represents a GetExperimentRunConfigPairDetailsRequest. */
+                class GetExperimentRunConfigPairDetailsRequest implements IGetExperimentRunConfigPairDetailsRequest {
+
+                    /**
+                     * Constructs a new GetExperimentRunConfigPairDetailsRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: clutch.chaos.experimentation.v1.IGetExperimentRunConfigPairDetailsRequest);
+
+                    /** GetExperimentRunConfigPairDetailsRequest id. */
+                    public id: (number|Long);
+
+                    /**
+                     * Verifies a GetExperimentRunConfigPairDetailsRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GetExperimentRunConfigPairDetailsRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GetExperimentRunConfigPairDetailsRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): clutch.chaos.experimentation.v1.GetExperimentRunConfigPairDetailsRequest;
+
+                    /**
+                     * Creates a plain object from a GetExperimentRunConfigPairDetailsRequest message. Also converts values to other types if specified.
+                     * @param message GetExperimentRunConfigPairDetailsRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: clutch.chaos.experimentation.v1.GetExperimentRunConfigPairDetailsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GetExperimentRunConfigPairDetailsRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a GetExperimentRunConfigPairDetailsResponse. */
+                interface IGetExperimentRunConfigPairDetailsResponse {
+
+                    /** GetExperimentRunConfigPairDetailsResponse run */
+                    run?: (clutch.chaos.experimentation.v1.IExperimentRun|null);
+
+                    /** GetExperimentRunConfigPairDetailsResponse fields */
+                    fields?: (clutch.chaos.experimentation.v1.IFields|null);
+
+                    /** GetExperimentRunConfigPairDetailsResponse error */
+                    error?: (string|null);
+                }
+
+                /** Represents a GetExperimentRunConfigPairDetailsResponse. */
+                class GetExperimentRunConfigPairDetailsResponse implements IGetExperimentRunConfigPairDetailsResponse {
+
+                    /**
+                     * Constructs a new GetExperimentRunConfigPairDetailsResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: clutch.chaos.experimentation.v1.IGetExperimentRunConfigPairDetailsResponse);
+
+                    /** GetExperimentRunConfigPairDetailsResponse run. */
+                    public run?: (clutch.chaos.experimentation.v1.IExperimentRun|null);
+
+                    /** GetExperimentRunConfigPairDetailsResponse fields. */
+                    public fields?: (clutch.chaos.experimentation.v1.IFields|null);
+
+                    /** GetExperimentRunConfigPairDetailsResponse error. */
+                    public error: string;
+
+                    /**
+                     * Verifies a GetExperimentRunConfigPairDetailsResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GetExperimentRunConfigPairDetailsResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GetExperimentRunConfigPairDetailsResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): clutch.chaos.experimentation.v1.GetExperimentRunConfigPairDetailsResponse;
+
+                    /**
+                     * Creates a plain object from a GetExperimentRunConfigPairDetailsResponse message. Also converts values to other types if specified.
+                     * @param message GetExperimentRunConfigPairDetailsResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: clutch.chaos.experimentation.v1.GetExperimentRunConfigPairDetailsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GetExperimentRunConfigPairDetailsResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a DeleteExperimentsRequest. */
+                interface IDeleteExperimentsRequest {
 
                     /** StopExperimentsRequest ids */
                     ids?: ((number|Long)[]|null);
@@ -2690,9 +2798,23 @@ export namespace clutch {
                     public getExperiments(request: clutch.chaos.experimentation.v1.IGetExperimentsRequest): Promise<clutch.chaos.experimentation.v1.GetExperimentsResponse>;
 
                     /**
-                     * Calls StopExperiments.
-                     * @param request StopExperimentsRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and StopExperimentsResponse
+                     * Calls GetExperimentRunConfigPairDetails.
+                     * @param request GetExperimentRunConfigPairDetailsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and GetExperimentRunConfigPairDetailsResponse
+                     */
+                    public getExperimentRunConfigPairDetails(request: clutch.chaos.experimentation.v1.IGetExperimentRunConfigPairDetailsRequest, callback: clutch.chaos.experimentation.v1.ExperimentsAPI.GetExperimentRunConfigPairDetailsCallback): void;
+
+                    /**
+                     * Calls GetExperimentRunConfigPairDetails.
+                     * @param request GetExperimentRunConfigPairDetailsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getExperimentRunConfigPairDetails(request: clutch.chaos.experimentation.v1.IGetExperimentRunConfigPairDetailsRequest): Promise<clutch.chaos.experimentation.v1.GetExperimentRunConfigPairDetailsResponse>;
+
+                    /**
+                     * Calls DeleteExperiments.
+                     * @param request DeleteExperimentsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and DeleteExperimentsResponse
                      */
                     public stopExperiments(request: clutch.chaos.experimentation.v1.IStopExperimentsRequest, callback: clutch.chaos.experimentation.v1.ExperimentsAPI.StopExperimentsCallback): void;
 
@@ -2721,11 +2843,200 @@ export namespace clutch {
                     type GetExperimentsCallback = (error: (Error|null), response?: clutch.chaos.experimentation.v1.GetExperimentsResponse) => void;
 
                     /**
-                     * Callback as used by {@link clutch.chaos.experimentation.v1.ExperimentsAPI#stopExperiments}.
+                     * Callback as used by {@link clutch.chaos.experimentation.v1.ExperimentsAPI#getExperimentRunConfigPairDetails}.
+                     * @param error Error, if any
+                     * @param [response] GetExperimentRunConfigPairDetailsResponse
+                     */
+                    type GetExperimentRunConfigPairDetailsCallback = (error: (Error|null), response?: clutch.chaos.experimentation.v1.GetExperimentRunConfigPairDetailsResponse) => void;
+
+                    /**
+                     * Callback as used by {@link clutch.chaos.experimentation.v1.ExperimentsAPI#deleteExperiments}.
                      * @param error Error, if any
                      * @param [response] StopExperimentsResponse
                      */
                     type StopExperimentsCallback = (error: (Error|null), response?: clutch.chaos.experimentation.v1.StopExperimentsResponse) => void;
+                }
+
+                /** Status enum. */
+                enum Status {
+                    UNKNOWN = 0,
+                    SCHEDULLED = 1,
+                    RUNNING = 2,
+                    COMPLETED = 3
+                }
+
+                /** Properties of an ExperimentRun. */
+                interface IExperimentRun {
+
+                    /** ExperimentRun id */
+                    id?: (number|Long|null);
+
+                    /** ExperimentRun startTime */
+                    startTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ExperimentRun endTime */
+                    endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ExperimentRun scheduledEndTime */
+                    scheduledEndTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ExperimentRun status */
+                    status?: (clutch.chaos.experimentation.v1.Status|null);
+                }
+
+                /** Represents an ExperimentRun. */
+                class ExperimentRun implements IExperimentRun {
+
+                    /**
+                     * Constructs a new ExperimentRun.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: clutch.chaos.experimentation.v1.IExperimentRun);
+
+                    /** ExperimentRun id. */
+                    public id: (number|Long);
+
+                    /** ExperimentRun startTime. */
+                    public startTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ExperimentRun endTime. */
+                    public endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ExperimentRun scheduledEndTime. */
+                    public scheduledEndTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ExperimentRun status. */
+                    public status: clutch.chaos.experimentation.v1.Status;
+
+                    /**
+                     * Verifies an ExperimentRun message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates an ExperimentRun message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns ExperimentRun
+                     */
+                    public static fromObject(object: { [k: string]: any }): clutch.chaos.experimentation.v1.ExperimentRun;
+
+                    /**
+                     * Creates a plain object from an ExperimentRun message. Also converts values to other types if specified.
+                     * @param message ExperimentRun
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: clutch.chaos.experimentation.v1.ExperimentRun, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this ExperimentRun to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a Fields. */
+                interface IFields {
+
+                    /** Fields fields */
+                    fields?: (clutch.chaos.experimentation.v1.ITextField[]|null);
+                }
+
+                /** Represents a Fields. */
+                class Fields implements IFields {
+
+                    /**
+                     * Constructs a new Fields.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: clutch.chaos.experimentation.v1.IFields);
+
+                    /** Fields fields. */
+                    public fields: clutch.chaos.experimentation.v1.ITextField[];
+
+                    /**
+                     * Verifies a Fields message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a Fields message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns Fields
+                     */
+                    public static fromObject(object: { [k: string]: any }): clutch.chaos.experimentation.v1.Fields;
+
+                    /**
+                     * Creates a plain object from a Fields message. Also converts values to other types if specified.
+                     * @param message Fields
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: clutch.chaos.experimentation.v1.Fields, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this Fields to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a TextField. */
+                interface ITextField {
+
+                    /** TextField label */
+                    label?: (string|null);
+
+                    /** TextField value */
+                    value?: (string|null);
+                }
+
+                /** Represents a TextField. */
+                class TextField implements ITextField {
+
+                    /**
+                     * Constructs a new TextField.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: clutch.chaos.experimentation.v1.ITextField);
+
+                    /** TextField label. */
+                    public label: string;
+
+                    /** TextField value. */
+                    public value: string;
+
+                    /**
+                     * Verifies a TextField message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a TextField message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns TextField
+                     */
+                    public static fromObject(object: { [k: string]: any }): clutch.chaos.experimentation.v1.TextField;
+
+                    /**
+                     * Creates a plain object from a TextField message. Also converts values to other types if specified.
+                     * @param message TextField
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: clutch.chaos.experimentation.v1.TextField, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this TextField to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
                 }
             }
         }

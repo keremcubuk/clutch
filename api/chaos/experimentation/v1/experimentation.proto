@@ -4,9 +4,12 @@ package clutch.chaos.experimentation.v1;
 
 import "google/api/annotations.proto";
 import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
 
 import "api/v1/annotations.proto";
+import "chaos/experimentation/v1/experiment_run.proto";
+import "chaos/experimentation/v1/fields.proto";
 
 option go_package = "experimentationv1";
 
@@ -31,6 +34,16 @@ message GetExperimentsResponse {
   repeated Experiment experiments = 3;
 }
 
+message GetExperimentRunConfigPairDetailsRequest {
+  uint64 id = 1;
+}
+
+message GetExperimentRunConfigPairDetailsResponse {
+  ExperimentRun run = 1;
+  Fields fields = 2;
+  string error = 3;
+}
+
 message StopExperimentsRequest {
   repeated uint64 ids = 1;
 }
@@ -50,6 +63,13 @@ service ExperimentsAPI {
   rpc GetExperiments(GetExperimentsRequest) returns (GetExperimentsResponse) {
     option (google.api.http) = {
       post : "/v1/experiments/get"
+      body : "*"
+    };
+    option (clutch.api.v1.action).type = READ;
+  }
+  rpc GetExperimentRunConfigPairDetails(GetExperimentRunConfigPairDetailsRequest) returns (GetExperimentRunConfigPairDetailsResponse) {
+    option (google.api.http) = {
+      post : "/v1/experiment/details/run-config"
       body : "*"
     };
     option (clutch.api.v1.action).type = READ;
