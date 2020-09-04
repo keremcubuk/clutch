@@ -8,8 +8,7 @@ import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
 
 import "api/v1/annotations.proto";
-import "chaos/experimentation/v1/experiment_run.proto";
-import "chaos/experimentation/v1/fields.proto";
+import "chaos/experimentation/v1/experiment_run_config_pair_details.proto";
 
 option go_package = "experimentationv1";
 
@@ -39,9 +38,7 @@ message GetExperimentRunConfigPairDetailsRequest {
 }
 
 message GetExperimentRunConfigPairDetailsResponse {
-  ExperimentRun run = 1;
-  Fields fields = 2;
-  string error = 3;
+  ExperimentRunConfigPairDetails run_config_pair_details = 1;
 }
 
 message StopExperimentsRequest {
